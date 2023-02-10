@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>AppLink Test</title>
+</head>
+<body>
+<h4>
+<div id="user_agent_div"></div>
+<p >
+  <input type="text" id="appLink_id" placeholder="Input appLink">
+  <button onclick="go_to_applink()">Go to this appLink</button>
+</p>
+</h4>
+<h4>
+  <a href="https://instagram.com">Check Instagram AppLink</a>
+</h4>
+<h4>
+  <a href="https://instagram.com/wrong">Check Instagram AppLink with wrong path</a>
+</h4>
+<h4>
+  <a href="https://fb.watch">Check Facebook AppLink</a>
+</h4>
+<h4>
+  <a href="https://applink.feishu.cn">Check Feishu AppLink</a>
+</h4>
+<script type="text/javascript">
+  function go_to_applink() {
+      let link = document.getElementById("appLink_id").value
+      if (!link.startsWith("http") && !link.startsWith("https")) {
+          link = "https://" + link
+      }
+      window.location.href = link
+  }
+  document.getElementById("user_agent_div").innerHTML = "UserAgent: " + navigator.userAgent
+</script>
+</body>
+</html>
